@@ -5,7 +5,7 @@ import { Actions } from "../../store/Reducer_db";
 export default function UserProfile() {
 	const [state, dispatch] = useContext(Context_db);
 
-	if (!state.user) {
+	if (state.user=="null") {
 		return (
 			<div className="flex gap-2">
 				<Link className="hover:text-blue-400" to={"/login"}>login</Link>
@@ -24,7 +24,7 @@ export default function UserProfile() {
 	return (
 		<div className="group">
 			<div className="cursor-pointer">
-				{parsedUser != "null" ? parsedUser.name : ""}
+				{parsedUser != "null" ? parsedUser?.name : ""}
 			</div>
 			<ul className="group-hover:block hidden absolute top-8 right-2 bg-gray-200 hover:bg-blue-600 hover:text-gray-100 text-gray-900">
 				<li>
