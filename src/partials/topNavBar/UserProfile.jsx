@@ -13,8 +13,7 @@ export default function UserProfile() {
 			</div>
 		);
 	}
-	const parsedUser = JSON.parse(state.user);
-
+    console.log(state)
 	const handleLogOut = () => {
 		dispatch({
 			actionType: Actions.LOGOUT,
@@ -24,14 +23,14 @@ export default function UserProfile() {
 	return (
 		<div className="group">
 			<div className="cursor-pointer">
-				{parsedUser != "null" ? parsedUser?.name : ""}
+				{state != "null" ? state?.email : ""}
 			</div>
 			<ul className="group-hover:block hidden absolute top-8 right-2 bg-gray-200 hover:bg-blue-600 hover:text-gray-100 text-gray-900">
 				<li>
 					<button
 						onClick={handleLogOut}
 						className="cursor-pointer rounded-md px-2">
-						{parsedUser != "null" ? "logout" : ""}
+						{state != "null" ? "logout" : ""}
 					</button>
 				</li>
 			</ul>

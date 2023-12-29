@@ -1,9 +1,32 @@
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import Context_db from "../../store/Context_db";
+import { Actions } from "../../store/Reducer_db";
 export default function LogIn() {
+    const [state, dispatch] = useContext(Context_db);
 	const { register, handleSubmit } = useForm();
-    const handleLogin = () => {
+
+    if (state.user != "null") {
+        return (
+            <section className="grid place-content-center min-h-screen">
+                <div>
+                    <Link to="/"> LOGO </Link>
+                    <div className=" bg-white">
+                        <h1>already logged in</h1>
+                    </div>
+                </div>
+            </section>
+        );
         
+    }
+    const handleLogin = (submitData) => {
+        console.log(submitData)
+
+        dispatch({
+            actionType: Actions.LOGIN,
+            payload: JSON.stringify(submitData),
+        })
     }
 	return (
         <section className="grid place-content-center min-h-screen">
@@ -13,8 +36,8 @@ export default function LogIn() {
                     <form onSubmit={handleSubmit(handleLogin)}>
                         <ul>
                             <li>
-                                <label htmlFor="username">username</label>
-                                <input type="text" placeholder="username" {...register("username")} />
+                                <label htmlFor="email">email</label>
+                                <input type="email" placeholder="email" {...register("email")} />
                             </li>
                             <li>
                                 <label htmlFor="password">password</label>

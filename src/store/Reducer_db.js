@@ -16,7 +16,7 @@ export default function Reducer_db(state, { actionType, payload }) {
 			localStorage.setItem("user", payload);
 			return {
 				...state,
-				user: payload,
+				user: JSON.parse(payload),
 			};
 		}
 		case Actions.LOGOUT: {
