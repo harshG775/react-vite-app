@@ -6,7 +6,7 @@ import Reducer_db from "./Reducer_db";
 export default function ContextProvider_db(prop) {
 	const initialState = {
 		isOpen: false,
-        user: localStorage.getItem("user") || null,
+        user: JSON.parse(localStorage.getItem("user")) || null,
         
 	};
 	return (

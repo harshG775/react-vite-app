@@ -6,8 +6,7 @@ import { Actions } from "../../store/Reducer_db";
 export default function LogIn() {
     const [state, dispatch] = useContext(Context_db);
 	const { register, handleSubmit } = useForm();
-
-    if (state.user != "null") {
+    if (state.user) {
         return (
             <section className="grid place-content-center min-h-screen">
                 <div>
@@ -21,8 +20,6 @@ export default function LogIn() {
         
     }
     const handleLogin = (submitData) => {
-        console.log(submitData)
-
         dispatch({
             actionType: Actions.LOGIN,
             payload: JSON.stringify(submitData),
