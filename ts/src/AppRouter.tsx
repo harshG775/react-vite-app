@@ -1,13 +1,12 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import ErrorPage from "@/routes/error";
-import Loading from "@/routes/loading";
-import RootLayout from "@/routes/layout";
-import HomePage from "@/routes/page";
+import ErrorPage from "src/app/error";
+import Loading from "src/app/loading";
+import RootLayout from "src/app/layout";
+import HomePage from "src/app/page";
 
-
-import LoginPage from "@/routes/(auth)/login/page";
-import NotFound from "@/routes/not-found";
+import LoginPage from "src/app/(auth)/login/page";
+import NotFound from "src/app/not-found";
 
 const router = createBrowserRouter([
     {
