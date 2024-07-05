@@ -2,7 +2,7 @@ import TanstackQueryProvider from "./tanstack-query-provider";
 import { ThemeProvider } from "./theme-provider";
 
 type ProvidersPropsType = { children: React.ReactNode };
-export default async function Providers({ children }: ProvidersPropsType) {
+export default function Providers({ children }: ProvidersPropsType) {
     return (
         <TanstackQueryProvider>
             <ThemeProvider storageKey="vite-ui-theme" defaultTheme="system">

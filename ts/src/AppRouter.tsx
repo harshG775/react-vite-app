@@ -7,6 +7,7 @@ import HomePage from "src/app/page";
 
 import LoginPage from "src/app/(auth)/login/page";
 import NotFound from "src/app/not-found";
+import Providers from "./components/providers/Providers";
 
 const router = createBrowserRouter([
     {
@@ -32,5 +33,9 @@ const router = createBrowserRouter([
 ]);
 
 export default function AppRouter() {
-    return <RouterProvider router={router} />;
+    return (
+        <Providers>
+            <RouterProvider router={router} />;
+        </Providers>
+    );
 }
