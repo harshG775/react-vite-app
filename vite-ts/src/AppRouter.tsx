@@ -1,8 +1,10 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import HomePage from "@/pages/Page";
-import RootLayout from "@/pages/layout";
-import ErrorPage from "@/pages/error";
-import Loading from "@/pages/loading";
+import HomePage from "./pages/Page";
+import RootLayout from "./pages/layout";
+import ErrorPage from "./pages/error";
+import Loading from "./pages/loading";
+import Providers from "./components/providers/Providers";
+import NotFound from "./pages/not-found";
 
 const router = createBrowserRouter([
     {
@@ -19,10 +21,14 @@ const router = createBrowserRouter([
     },
     {
         path: "*",
-        element: "<NotFound />",
+        element: <NotFound />,
     },
 ]);
 
 export default function AppRouter() {
-    return <RouterProvider router={router} />;
+    return (
+        <Providers>
+            <RouterProvider router={router} />
+        </Providers>
+    );
 }
