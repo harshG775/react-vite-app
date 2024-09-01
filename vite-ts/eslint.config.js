@@ -21,10 +21,14 @@ export default tseslint.config(
             ...reactHooks.configs.recommended.rules,
             "react-refresh/only-export-components": [
                 "warn",
+                { allowConstantExport: true },
+            ],
+            "no-unused-vars": [
+                "warn",
                 {
-                    allowConstantExport: true,
                     vars: "all",
                     args: "after-used",
+                    caughtErrors: "all",
                     ignoreRestSiblings: false,
                 },
             ],
